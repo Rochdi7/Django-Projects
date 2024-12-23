@@ -1,4 +1,4 @@
-cat <<EOL > README.md
+
 # Django Projects Repository 🌐
 
 Welcome to the **Django Projects Repository**!
@@ -25,18 +25,12 @@ This repository contains a collection of Django-based projects developed to expl
 
 \`\`\`
 Django-Projects/
-├── Project1/
+├── base/
 │   ├── app/
 │   ├── static/
 │   ├── templates/
 │   ├── manage.py
-│   ├── requirements.txt
-├── Project2/
-│   ├── app/
-│   ├── static/
-│   ├── templates/
-│   ├── manage.py
-│   ├── requirements.txt
+│   ├── requirements.txt //some projects not have
 ├── README.md
 \`\`\`
 
@@ -45,13 +39,13 @@ Django-Projects/
 ## 🚀 Setting Up Projects
 
 ### 1. Clone the Repository
-\`\`\`bash
+\`\`\`
 git clone https://github.com/Rochdi7/Django-Projects.git
 cd Django-Projects
 \`\`\`
 
 ### 2. Create a Virtual Environment
-\`\`\`bash
+\`\`\`
 # On Windows
 py -m venv venv
 
@@ -70,18 +64,18 @@ source venv/bin/activate
 
 ### 4. Install Dependencies
 Navigate to the project folder and run:
-\`\`\`bash
+\`\`\`
 pip install -r requirements.txt
 \`\`\`
 
 ### 5. Apply Migrations
-\`\`\`bash
+\`\`\`
 python manage.py makemigrations
 python manage.py migrate
 \`\`\`
 
 ### 6. Start the Development Server
-\`\`\`bash
+\`\`\`
 python manage.py runserver
 \`\`\`
 
@@ -92,7 +86,6 @@ Access the application at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 ## 🧑‍💻 Author
 
 - **Rochdi**
-
 ---
 
 ## 📜 License
