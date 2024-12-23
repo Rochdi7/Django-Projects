@@ -53,43 +53,5 @@ Bienvenue dans **Bibliothèque Numérique**, un système de gestion de biblioth�
 
 ---
 
-## 🛠️ Étapes pour Configurer le Projet
+## 📂 Structure du Projet
 
-Suivez ces étapes pour installer et configurer ce projet Django sur votre machine locale :
-
-### **1. Cloner le Dépôt**
-Clonez le dépôt GitHub sur votre machine :
-```bash
-git clone https://github.com/Rochdi7/Django-Projects.git
-cd Django-Projects
-
-# 1. Installer Django (si ce n'est pas déjà fait)
-pip install django
-
-# 2. Créer un environnement virtuel
-# Sur Windows
-py -m venv venv
-
-# Sur macOS/Linux
-python3 -m venv venv
-
-# 3. Activer l'environnement virtuel
-# Sur Windows
-venv\Scripts\activate
-
-# Sur macOS/Linux
-source venv/bin/activate
-
-# 4. Naviguer vers le dossier principal du projet
-cd /path/to/your/project
-
-# 5. Appliquer les migrations pour initialiser la base de données
-python manage.py makemigrations
-python manage.py migrate
-
-# 6. Lancer le serveur de développement
-python manage.py runserver
-
-# 7. Accéder à l'application dans le navigateur
-# Ouvrez votre navigateur et rendez-vous sur :
-# http://127.0.0.1:8000
