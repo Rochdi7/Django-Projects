@@ -28,19 +28,19 @@ Bienvenue dans **Bibliothèque Numérique**, un système de gestion de biblioth�
 ## 🖼️ Captures d'Écran
 
 ### **Page d'Accueil**
-![Accueil](screenshots/homepage.png)
+![Accueil](https://i.postimg.cc/8P9M0mmp/home-page.png)
 
 ### **Gestion des Livres**
-![Livres](screenshots/books_management.png)
+![Livres](https://i.postimg.cc/Ssgz76Kp/livres-page.png)
 
 ### **Gestion des Auteurs**
-![Auteurs](screenshots/authors_management.png)
+![Auteurs](https://i.postimg.cc/KjVkCmLq/auteurs-page.png)
 
 ### **Gestion des Emprunts**
-![Emprunts](screenshots/loans_management.png)
+![Emprunts](https://i.postimg.cc/KckmG7y3/emprient-page.png)
 
 ### **Formulaire d'Inscription**
-![Inscription](screenshots/register.png)
+![Inscription](shttps://i.postimg.cc/c6y90GGh/register-page.png)
 
 ---
 
