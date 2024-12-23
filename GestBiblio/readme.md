@@ -40,7 +40,7 @@ Bienvenue dans **Bibliothèque Numérique**, un système de gestion de biblioth�
 ![Emprunts](https://i.postimg.cc/KckmG7y3/emprient-page.png)
 
 ### **Formulaire d'Inscription**
-![Inscription](shttps://i.postimg.cc/c6y90GGh/register-page.png)
+![Inscription](https://i.postimg.cc/c6y90GGh/register-page.png)
 
 ---
 
