@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="shadow-sm p-4 bg-body rounded">
+        <h2 class="text-center mb-4 fw-bold" style="color: #1F509A; border-bottom: 2px solid #1F509A; padding-bottom: 20px;">Ajouter un Nouveau Livre</h2>
+        <form method="post" class="p-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="titre" class="form-label fw-semibold" style="color: #1F509A;">Titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre du livre" required>
+            </div>
+            <div class="mb-3">
+                <label for="auteur" class="form-label fw-semibold" style="color: #1F509A;">Auteur</label>
+                <select class="form-select" id="auteur" name="auteur" required>
+                    {% for auteur in auteurs %}
+                    <option value="{{ auteur.id }}">{{ auteur.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="date_publication" class="form-label fw-semibold" style="color: #1F509A;">Date de Publication</label>
+                <input type="date" class="form-control" id="date_publication" name="date_publication" required>
+            </div>
+            <div class="mb-3">
+                <label for="genre" class="form-label fw-semibold" style="color: #1F509A;">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre du livre" required>
+            </div>
+            <div class="mb-3">
+                <label for="exemplaires" class="form-label fw-semibold" style="color: #1F509A;">Nombre d'Exemplaires</label>
+                <input type="number" class="form-control" id="exemplaires" name="exemplaires" placeholder="Nombre d'exemplaires disponibles" required>
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-custom shadow-sm me-3">
+                    <i class="ri-check-line"></i> Ajouter
+                </button>
+                <a href="{% url 'liste_livres' %}" class="btn btn-secondary shadow-sm">
+                    <i class="ri-arrow-go-back-line"></i> Annuler
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .form-control,
+.form-select {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #1F509A;
+    box-shadow: 0 0 5px rgba(31, 80, 154, 0.5);
+}
+
+</style>
+{% endblock %}

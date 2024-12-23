@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4 fw-bold" style="color: #1F509A; border-bottom: 2px solid #1F509A; padding-bottom: 20px;">Gestion des Livres</h2>
+
+    <form method="get" class="d-flex mb-4 align-items-center shadow-sm p-3 bg-body rounded">
+        <input type="text" name="q" class="form-control me-2 search-input" style="width: 880px;" 
+        placeholder="Rechercher par titre ou genre..." 
+        value="{{ query }}">
+        <button type="submit" class="btn btn-custom"><i class="ri-search-line"></i> Rechercher</button>
+    </form>
+
+    <div class="table-responsive shadow-sm p-3 bg-body rounded">
+        <table class="table table-hover align-middle">
+            <thead class="table" style="background-color: #0A3981;">
+                <tr class="text-center" style="color: #D4EBF8;">
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Date de publication</th>
+                    <th>Genre</th>
+                    <th>Exemplaires</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livre in livres %}
+                <tr class="text-center">
+                    <td>{{ forloop.counter }}</td>
+                    <td class="fw-semibold">{{ livre.titre }}</td>
+                    <td>{{ livre.auteur }}</td>
+                    <td>{{ livre.date_publication }}</td>
+                    <td>
+                        <span class="badge text-white" style="background-color: #1F509A;">
+                            {{ livre.genre }}
+                        </span>
+                    </td>
+                    <td>{{ livre.exemplaires }}</td>
+                    <td>
+                        <a href="{% url 'modifier_livre' livre.id %}" class="btn btn-sm btn-action me-2">
+                            <i class="ri-edit-line"></i> Modifier
+                        </a>
+                        <a href="{% url 'supprimer_livre' livre.id %}" class="btn btn-sm btn-action-danger" 
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
+                            <i class="ri-delete-bin-2-line"></i> Supprimer
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center text-muted py-3">Aucun livre trouvé.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+        <a href="{% url 'ajouter_livre' %}" class="btn btn-custom shadow-sm">
+            <i class="ri-add-box-fill"></i> Ajouter un Livre
+        </a>
+    </div>
+</div>
+{% endblock %}

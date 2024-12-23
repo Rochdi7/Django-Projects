@@ -1,0 +1,342 @@
+/*          Variables          */
+:root {
+    --bleu-clair: #D4EBF8;
+    --bleu-moyen: #1F509A;
+    --bleu-fonce: #0A3981;
+    --orange: #E38E49;
+    --text-dark: #333;
+    --text-muted: #6c757d;
+    --white: #FFFFFF;
+    --hover-scale: 1.1;
+}
+
+/*          Général            */
+body {
+    background-color: var(--bleu-clair);
+    color: var(--text-dark);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Chakra Petch", sans-serif;
+
+}
+
+h1, h2 {
+    color: var(--bleu-fonce);
+}
+
+.text-warning {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/*  Navbar  */
+.navbar {
+    background-color: var(--bleu-fonce);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #D4EBF8;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color: var(--orange);
+    transform: scale(var(--hover-scale));
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar {
+  background-color: #0A3981;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 10px;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar-nav .nav-link.active {
+  border-bottom: 3px solid #E38E49;
+  color: #E38E49;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #E38E49;
+  border-bottom: 3px solid #E38E49;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: #E38E49;
+}
+
+
+/*  section slider  */
+
+.carousel-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner img {
+    width: 100vw;
+    height: 550px;
+    object-fit: cover;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.carousel-overlay p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.carousel-overlay a {
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-overlay a:hover {
+    background-color: #d36f38;
+    color: #0A3981;
+    box-shadow: 0 4px 6px rgba(211, 111, 56, 0.4), 
+                0 2px 4px rgba(10, 57, 129, 0.3);}
+
+    /* Animation pour le texte Bienvenue */
+    @keyframes slideFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        20% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        80% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    }
+    
+    #bienvenue {
+        animation: slideFromLeft 10s infinite;
+        display: inline-block;
+
+    }
+
+/* Bouton de connexion et d'inscription */
+.navbar-nav.ms-auto .nav-link {
+    color: var(--white);
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav.ms-auto .nav-link:hover {
+    background-color: var(--orange);
+    color: var(--bleu-fonce);
+    font-weight: 600;
+}
+
+.navbar-nav .nav-item .nav-link.reg {
+    background-color: var(--orange);
+    color: var(--bleu-fonce);
+    font-weight: bold;
+    border: none;
+}
+
+.navbar-nav .nav-item .nav-link.reg:hover {
+    background-color: var(--white);
+    color: var(--bleu-fonce);
+}
+/* Style global pour tous les boutons */
+.btn {
+    background-color: #E38E49; /* Couleur orange personnalisée */
+    color: #ffffff; /* Texte blanc */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d36f38;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/*   Cartes   */
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Bordures des cartes */
+.border-primary {
+    border-top: 3px solid var(--bleu-fonce) !important;
+}
+.border-success {
+    border-top: 3px solid var(--orange) !important;
+}
+.border-warning {
+    border-top: 3px solid var(--bleu-moyen) !important;
+}
+
+/*           Boutons           */
+.btn-primary {
+    background-color: var(--bleu-moyen);
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--bleu-fonce);
+}
+
+
+/*   Avatars   */
+
+.rounded-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--bleu-fonce);
+}
+
+
+/*    Formulaires & Contact    */
+.contact-section {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+/*           Utilitaires       */
+.bg-light {
+    background-color: var(--white) !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+/*    FAQ SECTION   */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+.accordion-button:hover {
+    background-color: #e2e6ea;
+}
+
+.accordion-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* section inscription */
+      .cta-section {
+        background: linear-gradient(135deg, #0A3981, #1F509A);
+        color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .cta-section:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #E38E49; 
+    }
+    
+    .cta-section p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: #f8f9fa;
+    }

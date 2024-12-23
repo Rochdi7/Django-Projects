@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4 fw-bold" style="color: #1F509A; border-bottom: 2px solid #1F509A; padding-bottom: 20px;">Modifier un Emprunt</h2>
+
+    <form method="post" class="shadow-sm p-4 bg-body rounded">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            <label for="emprunteur" class="form-label fw-semibold">Nom de l'Emprunteur</label>
+            <input type="text" class="form-control border-0 search-input" id="emprunteur" name="emprunteur" 
+                   value="{{ emprunt.emprunteur }}" 
+                   placeholder="Entrez le nom de l'emprunteur" 
+                   required style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <div class="mb-4">
+            <label for="livre" class="form-label fw-semibold">Titre du Livre</label>
+            <select class="form-select border-0 search-input" id="livre" name="livre" 
+                    required style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+                {% for livre in livres %}
+                <option value="{{ livre.id }}" {% if livre.id == emprunt.livre.id %}selected{% endif %}>
+                    {{ livre.titre }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="mb-4">
+            <label for="date_retour" class="form-label fw-semibold">Date de Retour</label>
+            <input type="date" class="form-control border-0 search-input" id="date_retour" name="date_retour" 
+                   value="{{ emprunt.date_retour|date:'Y-m-d' }}" 
+                   required style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'liste_auteurs' %}" class="btn btn-secondary shadow-sm">
+                <i class="ri-arrow-go-back-line"></i> Annuler
+            </a>
+            <button type="submit" class="btn btn-custom shadow-sm">
+                <i class="ri-save-line"></i> Enregistrer
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

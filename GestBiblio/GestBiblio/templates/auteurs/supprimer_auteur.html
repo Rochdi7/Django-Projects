@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="shadow-sm p-4 bg-body rounded text-center">
+        <h2 class="fw-bold mb-4" style="color: #1F509A;">Supprimer un Auteur</h2>
+        <p class="mb-4 text-muted">
+            Êtes-vous sûr de vouloir supprimer <strong style="color: #E38E49;">{{ auteur.prenom }} {{ auteur.nom }}</strong> ?
+        </p>
+        <form method="post" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger me-3 shadow-sm">
+                <i class="ri-delete-bin-6-line"></i> Oui, Supprimer
+            </button>
+            <a href="{% url 'liste_auteurs' %}" class="btn btn-secondary shadow-sm">
+                <i class="ri-arrow-go-back-line"></i> Annuler
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}
