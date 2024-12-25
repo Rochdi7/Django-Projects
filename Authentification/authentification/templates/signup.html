@@ -1,0 +1,29 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="first-name">First Name</label>
+    <input type="text" name="first-name" id="first-name" required>
+
+    <label for="last-name">Last Name</label>
+    <input type="text" name="last-name" id="last-name" required>
+
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" name="confirm-password" id="confirm-password" required>
+
+    <button type="submit">Submit</button>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
