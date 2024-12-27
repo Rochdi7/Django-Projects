@@ -114,7 +114,6 @@ This project is licensed under the MIT License. See the \`LICENSE\` file for mor
 ## 🌟 Acknowledgements
 
 - Thanks to the Django team for their amazing framework.
-- Icons from [FontAwesome](https://fontawesome.com).
 
 ---
 
