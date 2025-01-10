@@ -1,0 +1,277 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+{% load article_filters %}
+<section class="welcome-section">
+   <span id="first">Découvrir<span> Cuisine du Maroc</span></span>
+   <p>
+      Découvrez les saveurs authentiques du Maroc : tajines, couscous, et douceurs sucrées vous attendent. Plongez dans l’art culinaire marocain !
+    </p>
+</section>
+
+<h2 style="margin-top: 40px;" class="text-center mb-4">À propos de la cuisine marocaine</h2>
+<section class="about container my-5">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-6">
+      <h1 style="margin-bottom: 20px; text-align: center; color: #d4af37;">#1 Cuisine Mondiale</h1>
+      
+        <p class="lead">
+          La cuisine marocaine a été élue meilleure cuisine au monde grâce à ses saveurs uniques, ses plats emblématiques comme le tajine et le couscous, et son patrimoine culinaire riche en influences arabes, berbères, andalouses et méditerranéennes. Cette distinction reflète l'appréciation mondiale de son authenticité et de son raffinement.
+        </p>        
+        <a style="width: 150px; margin: 0 auto; margin-bottom: 25px; display: block;" href="/about-moroccan-cuisine" class="btn btn-custom">Learn More</a>
+    </div>
+    <div class="col-12 col-md-6">
+      <img src="{% static 'img/about.jpg' %}" alt="Moroccan Cuisine" class="img-fluid rounded">
+    </div>
+  </div>
+</section>
+
+<section class="important-blog">
+  <div class="container">
+    <div class="spotlight">
+      <h1 class="spotlight-h1"><ion-icon name="sparkles"></ion-icon> Spotlight</h1>
+      <div class="spotlight-top">
+        <img src="{% static 'img/spotlight.jpeg' %}" alt="Spotlight" />
+        <span>Special Recipe</span>
+        <h2> the Tajine</h2>
+        <p>The ultimate Moroccan dish loved across the world.</p>
+      </div>
+      <div class="spotlight-bottom">
+        <img src="{% static 'img/boy.png' %}" alt="" />
+        <h2>Faouzi berrada</h2>
+        <span>2024/01/14</span>
+      </div>
+    </div>
+
+    <div class="trending">
+      <h1 class="trending-h1"><ion-icon name="flame"></ion-icon> Trending</h1>
+      {% for article in trending_articles|slice:":3" %}
+      <div class="trending_articles">
+        <div class="trending-top">
+         <span>{{ article.tags.all|join:", " }}</span>
+         <h2><a href="{% url 'article_detail' article.slug %}">{{ article.title }}</a></h2>
+        </div>
+        <div class="trending-bottom">
+         {% if article.image %}
+        <img src="{% static 'img/boy.png' %}" alt="{{ article.title }}" />
+        {% endif %}
+        <h1>{{ article.author }}</h1>
+        <span>{{ article.created_at }}</span>
+        </div>
+      </div>
+      {% empty %}
+      <p>No trending articles available.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% load article_filters %}
+
+<h2 class="text-center mb-4">Nos Articles</h2>
+<section class="nos-articles container my-5">
+  {% if featured_recipes %}
+  <div id="articleCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for chunk in featured_recipes|make_chunks:3 %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="row">
+          {% for recipe_data in chunk %}
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <img src="{{ recipe_data.article.image.url }}" class="card-img-top img-fluid" alt="{{ recipe_data.article.title }}">
+              <span class="recipe-time"> <i class="fa-solid fa-clock"></i> {{ recipe_data.total_time }}</span>
+              <div class="card-body">
+                <h1 class="card-title">{{ recipe_data.article.title }}</h1>
+                <p class="card-text">{{ recipe_data.article.content|truncatewords:15 }}</p>
+                {% if recipe_data.total_time %}
+                <div class="card-semibody">
+                  <p class="" style="font-size: 11px; font-weight: bolder;">Publier le : {{ recipe_data.article.created_at }}</p>
+                  <p class="" style="font-size: 11px; font-weight: bolder; color: #333;">par : {{ recipe_data.article.author }}</p>
+                </div>
+                {% endif %}
+                <a href="{% url 'article_detail' recipe_data.article.slug %}" class="btn btn-custom">Lire l'article <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#articleCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#articleCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+  {% else %}
+  <p class="text-muted text-center">Aucun article disponible pour le moment.</p>
+  {% endif %}
+</section>
+
+
+<h2 class="text-center mb-4">Explore Categories</h2>
+<section class="categories container my-5">
+  <div id="categoriesCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for chunk in categories|make_chunks:4 %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="row">
+          {% for category in chunk %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100" style="background-color: transparent;">
+              <img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.name }}">
+              <div class="card-body text-center">
+                <h1 class="card-title">{{ category.name }}</h1>
+                <p class="card-text">{{ category.description|truncatewords:15 }}</p>
+                <a href="{% url 'home' %}" class="btn btn-custom">Explore <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<h2 class="text-center mb-4">Ce que dit notre client</h2>
+<div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for chunk in testimonials|make_chunks:3 %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="row">
+        {% for testimonial in chunk %}
+        <div class="col-md-4">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="{{ testimonial.image.url }}" alt="User Image" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+            <h5 class="mb-1">{{ testimonial.name }}</h5>
+            <p class="text-muted small">{{ testimonial.location }}</p>
+            <p class="testimonial-text">
+              <span class="quote-icon">“</span> {{ testimonial.content }}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <style>
+    .testimonial-text {
+      padding: 15px;
+      margin: 0 auto; 
+      max-width: 80%; 
+      text-align: justify; 
+    }
+  
+    .carousel-inner {
+      padding: 0 15px; 
+    }
+  
+    .d-flex {
+      padding: 10px; 
+    }
+  </style>
+  
+  <button class="custom-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="custom-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
+
+<h2 class="text-center mb-4">Newsletter</h2>
+<section class="newsletter text-white py-5">
+  <div class="container">
+    <div class="row align-items-stretch">
+      <div class="col-12 col-md-5 d-flex">
+        <div class="img-container flex-fill">
+          <img src="{% static 'img/newsletter.jpg' %}" alt="Newsletter" class="img-fluid rounded" style="height: 100%; width: 100%; object-fit: cover;">
+        </div>
+      </div>
+      <div class="col-12 col-md-7 d-flex flex-column justify-content-center p-5" style="background-color: #333; border-radius: 8px;">
+        <h1 class="mb-3 text-white text-center" style="text-transform: uppercase; font-size: 2rem;">Nouveau !</h1>
+        <p style="color: #d4af37;" class="mb-4 text-center">
+          Abonnez-vous à notre newsletter et participez au tirage au sort pour tenter de gagner le tout premier numéro !
+        </p>
+        <form method="post" action="/subscribe">
+          {% csrf_token %}
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="Votre Email" required>
+          </div>
+          <button type="submit" class="btn btn-custom2 w-100">S'inscrire à la Newsletter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer bg-dark text-light py-5">
+  <div class="container">
+    <div class="row text-center mb-4 flex-column">
+      <div class="col-12">
+        <h2 class="logo text-uppercase" style="color: #d4af37;">Délices du Maroc</h2>
+        <p class="slogan">Le Bonheur dans l'Assiette</p>
+      </div>
+      <div class="col-12">
+        <div class="social-icons d-flex justify-content-center flex-wrap">
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-pinterest"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="icon mx-2 mb-2"><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="footer-links d-flex justify-content-center flex-wrap mt-3" style="border-top: 2px solid white; padding-top: 20px;">
+          <a href="#" class="mx-3 text-light mb-2">Nous contacter</a>
+          <a href="#" class="mx-3 text-light mb-2">Mentions légales</a>
+          <a href="#" class="mx-3 text-light mb-2">Charte de confidentialité</a>
+          <a href="#" class="mx-3 text-light mb-2">Paramétrer mes cookies</a>
+          <a href="#" class="mx-3 text-light mb-2">Annonceurs - Publicité</a>
+          <a href="#" class="mx-3 text-light mb-2">Partenariats</a>
+          <a href="#" class="mx-3 text-light mb-2">Presse</a>
+          <a href="#" class="mx-3 text-light mb-2">CGU</a>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center mt-4">
+      <div class="col-12">
+        <p class="text-white small"> © 1998-2024 Délices du Maroc. Tous droits réservés. Reproduction interdite.</p>
+      </div>
+    </div>
+    <div class="row text-center mt-4">
+      <div class="col-12">
+        <p class="text-muted mb-2">Découvrez les autres marques du groupe Digital Prisma Players</p>
+        <div class="brands d-flex justify-content-center flex-wrap">
+          <img src="{% static 'img/brands/Sidi_Ali_01_09e01e9d28.svg' %}" alt="Marque 1" class="brand-logo mx-2 mb-2" style="width: 100px; height: 100px;">
+          <img src="{% static 'img/brands/labelvie.png' %}" alt="Marque 2" class="brand-logo mx-2 mb-2" style="width: 100px; height: 100px;">
+          <img src="{% static 'img/brands/marjane.png' %}" alt="Marque 3" class="brand-logo mx-2 mb-2" style="width: 100px; height: 100px;">
+          <img src="{% static 'img/brands/Wafagestion.png' %}" alt="Marque 4" class="brand-logo mx-2 mb-2" style="width: 100px; height: 100px;">
+          <img src="{% static 'img/brands/Nouveau_logo_electroplanet.png' %}" alt="Marque 5" class="brand-logo mx-2 mb-2" style="width: 100px; height: 100px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+{% endblock %}

@@ -1,0 +1,397 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load custom_filters %}
+<div class="article_detail container my-4">
+  <div class="article row">
+    <div class="article-header col-12 mb-3">
+      <h2 class="h3">{{ article.title }}</h2>
+      <div class="article-details d-flex align-items-center">
+        <div class="rating me-3">
+          <span class="text-primary fw-bold">{{ average_rating|floatformat:1 }}/5</span>
+          <div class="stars d-inline-block ms-2">
+            {% for _ in full_stars %}
+            <span class="text-warning fs-5">★</span>
+            {% endfor %}
+            {% for _ in empty_stars %}
+            <span class="text-muted fs-5">☆</span>
+            {% endfor %}
+          </div>
+        </div>
+        <span class="text-muted small">{{ total_reviews }} avis</span>
+      </div>
+    </div>
+
+    <div class="article-body col-12">
+      <img class="article-image img-fluid rounded mb-3" src="{{ article.image.url }}" alt="" />
+      <div class="icon-bar d-flex justify-content-between mb-3">
+        <div class="icon-left d-flex">
+          <span class="icon me-2">
+            <i class="fa fa-star"></i>
+          </span>
+          <span class="icon me-2">
+            <i class="fa fa-comment"></i>
+          </span>
+        </div>
+        <div class="icon-right d-flex">
+          <span class="icon me-2">
+            <i class="fa fa-bookmark"></i>
+          </span>
+          <span class="icon me-2">
+            <i class="fa fa-print"></i>
+          </span>
+          <span class="icon">
+            <i class="fa fa-share-alt"></i>
+          </span>
+        </div>
+      </div>
+      <p class="mb-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam deleniti libero ullam consectetur reiciendis minus, debitis cupiditate sapiente ea aliquam.
+      </p>
+      <a href="#" class="btn btn-custom" style="width: 200px;">Voir les commentaires</a>
+      <div class="article-poster d-flex align-items-center">
+        {% if article.image %}
+        <img src="{% static 'img/boy.png' %}" alt="{{ article.title }}" class="rounded-circle me-3" style="width: 50px; height: 50px;" />
+        {% endif %}
+        <div>
+          <h1 class="h6 mb-1">{{ article.author }}</h1>
+          <span class="text-muted small">{{ article.created_at|date:"d M Y" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if recipe %}
+<div class="recipes-details container py-4 d-flex flex-column align-items-center">
+  <div class="recipes-time d-flex justify-content-between w-100 text-center g-3 mb-4">
+    <div class="total flex-grow-1 mx-3">
+      <h1>Total:</h1>
+      <p style="text-align: center;">{{ total_time }}</p>
+    </div>
+    <div class="preparation flex-grow-1 mx-3">
+      <h1>Préparation:</h1>
+      <p style="text-align: center;" >{{ preparation_time }}</p>
+    </div>
+    <div class="Cuisson flex-grow-1 mx-3">
+      <h1>Cuisson :</h1>
+      <p style="text-align: center;">{{ cooking_time }}</p>
+    </div>
+  </div>
+  <div class="recipes-cost text-center mt-4">
+    <p>{{ cost_estimate }}</p>
+  </div>
+</div>
+{% else %}
+<p class="text-center text-muted">Aucune recette associée à cet article.</p>
+{% endif %}
+
+
+<h2 class="text-center mb-4">Ingrédients</h2>
+<section class="ingredients container my-4">
+  <div class="row g-4">
+    {% for ingredient_item in ingredients %}
+    <div class="col-12 col-md-6 d-flex align-items-center">
+      <div class="ingredient-img me-3">
+        <img src="{{ ingredient_item.ingredient.image.url }}" alt="{{ ingredient_item.ingredient.name }}" class="img-fluid rounded" style="width: 80px; height: 80px;">
+      </div>
+      <div class="ingredient-details d-flex justify-content-between w-100">
+        <h5 class="mb-0">{{ ingredient_item.ingredient.name }}</h5>
+        <p class="mb-0 fw-bold text-end">{{ ingredient_item.quantity }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<h2 class="text-center mb-4">Préparation</h2>
+
+<section class="etap-section container my-4">
+  <div class="etap_description text-justify mx-auto">
+    {{ formatted_preparation_description|safe }}
+  </div>
+</section>
+
+<h2 class="text-center mb-4">Donnez-nous votre avis !</h2>
+
+<section class="avis-user my-4">
+  <div class="rating-section d-flex align-items-center mb-4">
+    <div class="stars d-flex" id="ratingStars">
+      <i class="fas fa-star" data-value="1"></i>
+      <i class="fas fa-star" data-value="2"></i>
+      <i class="fas fa-star" data-value="3"></i>
+      <i class="fas fa-star" data-value="4"></i>
+      <i class="fas fa-star" data-value="5"></i>
+    </div>
+    <p id="ratingFeedback" class="ms-3 mb-0 text-muted">Comment était la recette ?</p>
+  </div>
+  <form method="POST" action=".">
+    {% csrf_token %}
+    <textarea name="comment" id="comment" class="form-control mb-3" placeholder="Votre commentaire ici (optionnel)" rows="4"></textarea>
+    <input type="hidden" name="rating" id="ratingInput" value="0">
+    <button type="submit" class="btn btn-primary w-100">Envoyer mon avis</button>
+  </form>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const stars = document.querySelectorAll("#ratingStars i");
+  const feedback = document.getElementById("ratingFeedback");
+  const ratingInput = document.getElementById("ratingInput");
+
+  const feedbackText = {
+    1: "Mauvais 😞",
+    2: "Passable 😐",
+    3: "Bien 😊",
+    4: "Très bien 😃",
+    5: "Excellent 🤩",
+  };
+
+  stars.forEach((star) => {
+    star.addEventListener("mouseover", () => {
+      const value = star.getAttribute("data-value");
+      stars.forEach((s) => s.classList.remove("active"));
+      for (let i = 0; i < value; i++) {
+        stars[i].classList.add("active");
+      }
+      feedback.textContent = feedbackText[value];
+    });
+
+    star.addEventListener("click", () => {
+      const value = star.getAttribute("data-value");
+      ratingInput.value = value;
+    });
+
+    star.addEventListener("mouseout", () => {
+      if (!ratingInput.value) {
+        stars.forEach((s) => s.classList.remove("active"));
+        feedback.textContent = "Survolez les étoiles pour donner une note.";
+      }
+    });
+  });
+});
+
+</script>
+
+<h2 class="mb-4 text-primary">Commentaires</h2>
+
+<section class="comments container my-4 text-center">
+  {% if comments %}
+  <ul class="list-unstyled mx-auto" style="max-width: 700px;">
+    {% for comment in comments %}
+    <li class="mb-4">
+      <div class="d-flex align-items-start justify-content-center bg-light p-3 rounded shadow-sm">
+        <img src="{% static 'img/avatar-placeholder.png' %}" alt="Avatar" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+        <div>
+          <strong class="d-block text-primary fs-5">{{ comment.user.username }}</strong>
+          <small class="text-muted d-block">{{ comment.created_at|date:"d M Y, H:i" }}</small>
+          <p class="mt-2 mb-0 text-dark text-start">{{ comment.content }}</p>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="text-muted">Aucun commentaire pour le moment.</p>
+  {% endif %}
+</section>
+
+<!-- Add this CSS -->
+<style>
+  .comments h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .comments .list-unstyled {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .comments li {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .comments .bg-light {
+    background-color: #f9f9f9 !important;
+  }
+
+  .comments .rounded {
+    border-radius: 10px !important;
+  }
+
+  .comments img {
+    border: 2px solid #007bff;
+  }
+
+  .comments .text-primary {
+    color: #007bff !important;
+  }
+
+  .comments .shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+
+<h2 class="mb-4 text-center">Les avis :</h2>
+
+<section class="ratings-summary container my-4 text-center">
+  <div class="global-rating py-4 mb-4 rounded shadow-sm">
+    <div class="rating-score mx-auto">
+      <h3 class="mb-2 text-uppercase text-primary">Note Globale</h3>
+      <p class="mb-2 fs-4 text-dark"><strong>{{ average_rating|floatformat:1 }}/5</strong></p>
+      <div class="stars mb-2">
+        {% for _ in full_stars %}
+        <span class="text-warning fs-4">★</span>
+        {% endfor %}
+        {% for _ in empty_stars %}
+        <span class="text-muted fs-4">☆</span>
+        {% endfor %}
+      </div>
+      <p class="mt-2 text-muted">{{ total_reviews }} avis</p>
+    </div>
+  </div>
+
+  <div class="rating-breakdown mx-auto py-4 rounded shadow-sm">
+    <h4 class="mb-3 text-secondary">Répartition des Notes</h4>
+    {% for star in star_counts.keys %}
+    <div class="d-flex align-items-center mb-3">
+      <span class="text-warning me-2 fs-5">★</span>
+      <span class="me-2 text-dark">{{ star }}</span>
+      <div class="progress flex-grow-1" style="height: 10px; background-color: #e9ecef;">
+        <div class="progress-bar bg-primary" role="progressbar" 
+             style="width: {{ star_percentages|get_dict_value:star|floatformat:1 }}%;" 
+             aria-valuenow="{{ star_percentages|get_dict_value:star|floatformat:1 }}" 
+             aria-valuemin="0" 
+             aria-valuemax="100"></div>
+      </div>
+      <span class="ms-2 text-dark">{{ star_counts|get_dict_value:star }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .ratings-summary {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .global-rating, .rating-breakdown {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .global-rating h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .stars span {
+    margin: 0 2px;
+  }
+
+  .progress-bar {
+    transition: width 0.4s ease;
+  }
+
+  .rating-breakdown h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .rating-breakdown .progress {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+</style>
+
+
+<h2 class="text-center mb-4">Recettes similaires :</h2>
+<section class="similar-recipes container my-4">
+  <div class="row g-3">
+    {% for similar_recipe in similar_recipes %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 text-center card-equal-height">
+          <img src="{{ similar_recipe.image.url }}" class="card-img-top" alt="{{ similar_recipe.title }}">
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title">{{ similar_recipe.title }}</h3>
+
+            <p class="card-category mt-2">
+              Catégorie : {{ similar_recipe.related_recipe.category.name|default:"Non spécifié" }}
+            </p>
+
+            <p class="card-text mt-2">
+              Temps total : {{ similar_recipe.related_recipe.formatted_total_time|default:"Non spécifié" }}
+            </p>
+
+            <a href="{% url 'article_detail' similar_recipe.slug %}" class="btn btn-primary w-100 mt-auto">Voir la recette</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+  .card-equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-img-container {
+    width: 100%;
+    height: 180px; /* Consistent height for all images */
+    overflow: hidden;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the container without distortion */
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .card-category, .card-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    margin-top: auto;
+  }
+
+  .row.g-3 > [class*='col-'] {
+    margin-bottom: 20px;
+  }
+</style>
+
+
+{% endblock %}
