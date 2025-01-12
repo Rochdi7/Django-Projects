@@ -15,3 +15,4 @@ Remove hardcoded values - Commit 3
 Add example usage in documentation - Commit 4
 Enhance error handling in script - Commit 5
 Enhance validation rules for forms - Commit 6
+Add configuration file for deployment - Commit 7
