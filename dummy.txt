@@ -27,3 +27,4 @@ Add test cases for validation - Commit 15
 Add feature to export data to CSV - Commit 16
 Enhance validation rules for forms - Commit 17
 Add support for additional parameters - Commit 18
+Add logging for debugging - Commit 19
