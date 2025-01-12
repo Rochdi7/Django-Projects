@@ -33,3 +33,4 @@ Enhance validation rules for forms - Commit 21
 Add new feature to improve performance - Commit 22
 Update database schema - Commit 23
 Add feature to export data to CSV - Commit 24
+Update dependencies to latest version - Commit 25
