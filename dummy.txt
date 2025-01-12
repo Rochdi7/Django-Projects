@@ -37,3 +37,4 @@ Update dependencies to latest version - Commit 25
 Add feature to export data to CSV - Commit 26
 Enhance error handling in script - Commit 27
 Update dependencies to latest version - Commit 28
+Update README file - Commit 29
