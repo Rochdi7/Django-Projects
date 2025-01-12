@@ -13,3 +13,4 @@ Remove obsolete files - Commit 1
 Delete deprecated function - Commit 2
 Remove hardcoded values - Commit 3
 Add example usage in documentation - Commit 4
+Enhance error handling in script - Commit 5
