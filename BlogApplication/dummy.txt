@@ -14,3 +14,4 @@ Add Moroccan recipes section - Iteration 2
 Add Moroccan recipes section - Iteration 3
 Add related articles section - Iteration 4
 Enhance user authentication system - Iteration 5
+Fix alignment issue on mobile view - Iteration 6
