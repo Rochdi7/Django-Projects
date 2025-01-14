@@ -16,3 +16,4 @@ Add related articles section - Iteration 4
 Enhance user authentication system - Iteration 5
 Fix alignment issue on mobile view - Iteration 6
 Fix bug in recipe pagination - Iteration 7
+Enhance user authentication system - Iteration 8
