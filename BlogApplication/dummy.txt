@@ -2,3 +2,4 @@ Initializing dummy file
 Add Moroccan recipes section - Iteration 1
 Fix bug in recipe pagination - Iteration 2
 Enhance user authentication system - Iteration 3
+Add filtering by recipe categories - Iteration 4
