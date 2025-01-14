@@ -5,3 +5,4 @@ Enhance user authentication system - Iteration 3
 Add filtering by recipe categories - Iteration 4
 Optimize image loading for articles - Iteration 5
 Implement search functionality - Iteration 6
+Fix bug in recipe pagination - Iteration 7
