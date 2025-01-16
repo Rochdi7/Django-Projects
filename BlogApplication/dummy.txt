@@ -26,3 +26,4 @@ Update styling for recipe sections - Iteration 4
 Enhance user authentication system - Iteration 5
 add template - Iteration 6
 fix accessibility for screen readers - Iteration 7
+Update styling for recipe sections - Iteration 8
