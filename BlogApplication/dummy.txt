@@ -28,3 +28,4 @@ add template - Iteration 6
 fix accessibility for screen readers - Iteration 7
 Update styling for recipe sections - Iteration 8
 Fix bug in recipe pagination - Iteration 9
+fix related articles section - Iteration 10
