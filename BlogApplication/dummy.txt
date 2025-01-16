@@ -20,3 +20,4 @@ Enhance user authentication system - Iteration 8
 Add related articles section - Iteration 9
 Implement search functionality - Iteration 10
 fix accessibility for screen readers - Iteration 1
+add template - Iteration 2
