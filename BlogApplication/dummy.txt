@@ -33,3 +33,4 @@ Fix issue with recipe image loading - Iteration 1
 Fix issue with recipe image loading - Iteration 2
 Update about page with information on Moroccan cuisine - Iteration 3
 Add user authentication and login system - Iteration 4
+Integrate recipe cards with dynamic content - Iteration 5
