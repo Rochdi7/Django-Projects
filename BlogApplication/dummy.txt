@@ -35,3 +35,4 @@ Update about page with information on Moroccan cuisine - Iteration 3
 Add user authentication and login system - Iteration 4
 Integrate recipe cards with dynamic content - Iteration 5
 Fix issue with recipe image loading - Iteration 6
+Refactor CSS for better mobile responsiveness - Iteration 7
