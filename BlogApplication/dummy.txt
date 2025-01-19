@@ -30,3 +30,4 @@ Update styling for recipe sections - Iteration 8
 Fix bug in recipe pagination - Iteration 9
 fix related articles section - Iteration 10
 Fix issue with recipe image loading - Iteration 1
+Fix issue with recipe image loading - Iteration 2
