@@ -41,3 +41,4 @@ Fix settings.py bug
 static file fixed
 Fix settings.py bug
 static file fixed
+Fix settings.py bug - Iteration 1
