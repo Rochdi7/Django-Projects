@@ -1,24 +1,16 @@
 #!/bin/bash
-# Script to automate commits with 10 unique messages tailored for Blog Cuisine
+# Script to automate commits with 8 unique messages tailored for Moroccan Cuisine Blog
 
 # Number of iterations
-ITERATIONS=10
+ITERATIONS=2
 
 # Create a dummy file to modify
 FILE_NAME="dummy.txt"
 
-# Array of 10 unique commit messages for the Blog Cuisine project
+# Array of 8 unique commit messages for the Moroccan Cuisine Blog project
 COMMIT_MESSAGES=(
-    "Add Moroccan recipes section"
-    "Fix bug in recipe pagination"
-    "Update styling for recipe cards"
-    "Optimize image loading for articles"
-    "Implement search functionality"
-    "Enhance user authentication system"
-    "Add filtering by recipe categories"
-    "Improve accessibility for screen readers"
-    "Add related articles section"
-    "Fix alignment issue on mobile view"
+    "Fix settings.py bug"
+    "static file fixed"
 )
 
 # Check if the file exists, else create it
@@ -29,7 +21,7 @@ if [ ! -f "$FILE_NAME" ]; then
     echo "Initialized $FILE_NAME and made the first commit."
 fi
 
-# Loop to add 10 iterations of commits with random messages
+# Loop to add 8 iterations of commits with random messages
 for ((i=1; i<=ITERATIONS; i++))
 do
     # Pick a random commit message from the array

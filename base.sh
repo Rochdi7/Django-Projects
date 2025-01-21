@@ -1,27 +1,45 @@
 #!/bin/bash
-# Script to automate commits
+# Script to automate commits with 8 unique messages tailored for Moroccan Cuisine Blog
 
-# Number of commits you want to add
-NUM_COMMITS=10
+# Number of iterations
+ITERATIONS=2
 
 # Create a dummy file to modify
 FILE_NAME="dummy.txt"
 
-# Check if file exists, else create it
+# Array of 8 unique commit messages for the Moroccan Cuisine Blog project
+COMMIT_MESSAGES=(
+    "Fix settings.py bug"
+    "static file fixed"
+)
+
+# Check if the file exists, else create it
 if [ ! -f "$FILE_NAME" ]; then
     echo "Initializing dummy file" > "$FILE_NAME"
     git add "$FILE_NAME"
-    git commit -m "Initial commit for automation"
+    git commit -m "Initial commit with dummy file"
+    echo "Initialized $FILE_NAME and made the first commit."
 fi
 
-# Loop to add commits
-for ((i=1; i<=NUM_COMMITS; i++))
+# Loop to add 8 iterations of commits with random messages
+for ((i=1; i<=ITERATIONS; i++))
 do
-    echo "Commit $i" >> "$FILE_NAME"  # Modify the file
-    git add "$FILE_NAME"             # Stage changes
-    git commit -m "Automated commit $i"  # Create commit
-    echo "Created commit $i"
+    # Pick a random commit message from the array
+    RANDOM_INDEX=$((RANDOM % ${#COMMIT_MESSAGES[@]}))
+    COMMIT_MESSAGE="${COMMIT_MESSAGES[$RANDOM_INDEX]}"
+
+    # Modify the dummy file
+    echo "$COMMIT_MESSAGE - Iteration $i" >> "$FILE_NAME"
+
+    # Stage and commit the changes
+    git add "$FILE_NAME"
+    git commit -m "$COMMIT_MESSAGE"
+
+    # Output a message for each commit
+    echo "Created commit: $COMMIT_MESSAGE"
 done
 
 # Push changes to GitHub
 git push origin main
+
+echo "All $ITERATIONS commits have been pushed to GitHub."
