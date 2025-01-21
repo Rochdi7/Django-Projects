@@ -40,3 +40,4 @@ Integrate recipe cards with dynamic content - Iteration 8
 Fix settings.py bug
 static file fixed
 Fix settings.py bug
+static file fixed
