@@ -37,3 +37,4 @@ Integrate recipe cards with dynamic content - Iteration 5
 Fix issue with recipe image loading - Iteration 6
 Refactor CSS for better mobile responsiveness - Iteration 7
 Integrate recipe cards with dynamic content - Iteration 8
+Fix settings.py bug
