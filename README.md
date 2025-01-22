@@ -90,16 +90,13 @@ Access the application at: [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ## 📜 Projects Overview
 
-### 1. **Rochdi7Guest77-MR**
-A unique application showcasing advanced Django features with integrated front-end design using **Bootstrap**.
-
-### 2. **Rochdi7**
+### 1. **authentication**
 Focuses on user authentication and management, offering practical implementation of Django's built-in authentication system.
 
-### 3. **Guest77-MR**
+### 2. **blog application**
 A dynamic blog application featuring recipe cards with dynamic content, highlighting modular Django development.
 
-### 4. **GestBiblio**
+### 3. **GestBiblio**
 A library management system built with Django to streamline the organization and tracking of library books.
 
 ---
