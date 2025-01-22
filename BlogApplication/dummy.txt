@@ -70,3 +70,4 @@ Enhance user authentication - Iteration 4
 Enhance user authentication - Iteration 5
 Enhance user authentication - Iteration 6
 Fix settings.py bug - Iteration 7
+Fix settings.py bug - Iteration 8
