@@ -54,3 +54,4 @@ Fix settings.py bug - Iteration 8
 Improve image upload handling - Iteration 9
 Update admin panel for recipes - Iteration 10
 Improve image upload handling - Iteration 1
+Improve image upload handling - Iteration 2
