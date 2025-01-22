@@ -72,3 +72,4 @@ Enhance user authentication - Iteration 6
 Fix settings.py bug - Iteration 7
 Fix settings.py bug - Iteration 8
 Add new recipe model - Iteration 9
+Add search functionality for recipes - Iteration 10
