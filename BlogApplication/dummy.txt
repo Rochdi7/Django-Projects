@@ -50,3 +50,4 @@ Improve image upload handling - Iteration 4
 Optimize database queries - Iteration 5
 Add new recipe model - Iteration 6
 Improve image upload handling - Iteration 7
+Fix settings.py bug - Iteration 8
