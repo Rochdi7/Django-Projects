@@ -52,3 +52,4 @@ Add new recipe model - Iteration 6
 Improve image upload handling - Iteration 7
 Fix settings.py bug - Iteration 8
 Improve image upload handling - Iteration 9
+Update admin panel for recipes - Iteration 10
