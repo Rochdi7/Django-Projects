@@ -46,3 +46,4 @@ Fix settings.py bug - Iteration 2
 Fix settings.py bug - Iteration 1
 Fix settings.py bug - Iteration 2
 Refactor views for better performance - Iteration 3
+Improve image upload handling - Iteration 4
