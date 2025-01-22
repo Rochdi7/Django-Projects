@@ -65,3 +65,4 @@ Fix settings.py bug - Iteration 9
 Refactor views for better performance - Iteration 10
 Update admin panel for recipes - Iteration 1
 Improve image upload handling - Iteration 2
+Implement recipe rating system - Iteration 3
