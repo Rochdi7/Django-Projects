@@ -56,3 +56,4 @@ Update admin panel for recipes - Iteration 10
 Improve image upload handling - Iteration 1
 Improve image upload handling - Iteration 2
 Fix settings.py bug - Iteration 3
+Fix settings.py bug - Iteration 4
