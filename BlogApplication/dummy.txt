@@ -68,3 +68,4 @@ Improve image upload handling - Iteration 2
 Implement recipe rating system - Iteration 3
 Enhance user authentication - Iteration 4
 Enhance user authentication - Iteration 5
+Enhance user authentication - Iteration 6
