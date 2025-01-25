@@ -5,3 +5,4 @@ Fix admin.py bug in RecipeIngredient inline configuration - Iteration 3
 Add list display for Rating model in admin - Iteration 4
 Add admin configuration for Article model - Iteration 5
 Fix admin.py bug in RecipeIngredient inline configuration - Iteration 6
+Add Testimonial model to admin with search and filters - Iteration 7
