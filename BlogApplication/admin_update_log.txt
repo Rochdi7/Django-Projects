@@ -1,3 +1,4 @@
 Initializing admin update log file
 Fix admin.py bug in RecipeIngredient inline configuration - Iteration 1
 Optimize Recipe admin with preparation time filter - Iteration 2
+Fix admin.py bug in RecipeIngredient inline configuration - Iteration 3
