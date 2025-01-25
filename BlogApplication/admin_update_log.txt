@@ -8,3 +8,4 @@ Fix admin.py bug in RecipeIngredient inline configuration - Iteration 6
 Add Testimonial model to admin with search and filters - Iteration 7
 Add admin configuration for Article model - Iteration 8
 Configure Category model in admin with description field - Iteration 9
+Add Testimonial model to admin with search and filters - Iteration 10
