@@ -18,3 +18,4 @@ Add list display for User Ratings - Iteration 6
 Add Testimonial admin with search - Iteration 7
 Configure Category admin with details - Iteration 8
 Add search for Ingredient admin - Iteration 9
+Add search for Ingredient admin - Iteration 10
