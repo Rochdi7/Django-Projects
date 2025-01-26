@@ -15,3 +15,4 @@ Fix Ingredient inline in admin - Iteration 3
 Refactor admin.py for better structure - Iteration 4
 Fix Ingredient inline in admin - Iteration 5
 Add list display for User Ratings - Iteration 6
+Add Testimonial admin with search - Iteration 7
