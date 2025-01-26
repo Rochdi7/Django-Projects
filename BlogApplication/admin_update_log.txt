@@ -11,3 +11,4 @@ Configure Category model in admin with description field - Iteration 9
 Add Testimonial model to admin with search and filters - Iteration 10
 Optimize Recipe admin filters - Iteration 1
 Optimize Recipe admin filters - Iteration 2
+Fix Ingredient inline in admin - Iteration 3
