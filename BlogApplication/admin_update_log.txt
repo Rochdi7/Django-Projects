@@ -14,3 +14,4 @@ Optimize Recipe admin filters - Iteration 2
 Fix Ingredient inline in admin - Iteration 3
 Refactor admin.py for better structure - Iteration 4
 Fix Ingredient inline in admin - Iteration 5
+Add list display for User Ratings - Iteration 6
