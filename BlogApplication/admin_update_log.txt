@@ -12,3 +12,4 @@ Add Testimonial model to admin with search and filters - Iteration 10
 Optimize Recipe admin filters - Iteration 1
 Optimize Recipe admin filters - Iteration 2
 Fix Ingredient inline in admin - Iteration 3
+Refactor admin.py for better structure - Iteration 4
