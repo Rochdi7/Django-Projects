@@ -1,1 +1,2 @@
 Initializing test log file
+Project done! Ready for tests. - Iteration 1
