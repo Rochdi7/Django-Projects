@@ -3,3 +3,4 @@ Ajout Emprunt - Iter 1
 Finalisation - Iter 2
 Ajout Auteur - Iter 1
 Fix bug - Iter 2
+Fix bug - Iter 3
