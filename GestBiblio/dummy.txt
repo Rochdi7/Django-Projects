@@ -22,3 +22,4 @@ Refacto Code - Iter 10
 Ajout Modèle Livre - Iter 1
 MàJ Vue Auteur - Iter 2
 Ajout Emprunt API - Iter 3
+Suppression Livre - Iter 4
