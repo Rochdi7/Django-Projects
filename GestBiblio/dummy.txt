@@ -25,3 +25,4 @@ Ajout Emprunt API - Iter 3
 Suppression Livre - Iter 4
 Optimisation Recherche - Iter 5
 Ajout Utilisateur - Iter 6
+Fix Gestion Prêt - Iter 7
