@@ -43,3 +43,4 @@ static file fixed - Iteration 1
 static file fixed - Iteration 2
 new files add in blog application - Iteration 1
 admin.py file add in blog application - Iteration 2
+admin.py file add in blog application - Iteration 1
