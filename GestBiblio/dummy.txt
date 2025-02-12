@@ -36,3 +36,4 @@ Suppression livre obsolète - Iter 4
 Optimisation recherche - Iter 5
 Ajout gestion utilisateur - Iter 6
 Correction gestion des prêts - Iter 7
+MàJ template affichage - Iter 8
