@@ -33,3 +33,4 @@ Ajout modèle Livre - Iter 1
 MàJ vue Auteur - Iter 2
 Ajout API Emprunt - Iter 3
 Suppression livre obsolète - Iter 4
+Optimisation recherche - Iter 5
