@@ -32,3 +32,4 @@ Refacto Backend - Iter 10
 Ajout modèle Livre - Iter 1
 MàJ vue Auteur - Iter 2
 Ajout API Emprunt - Iter 3
+Suppression livre obsolète - Iter 4
