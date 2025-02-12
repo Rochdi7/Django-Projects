@@ -30,3 +30,4 @@ MàJ Template - Iter 8
 Update Base de Données - Iter 9
 Refacto Backend - Iter 10
 Ajout modèle Livre - Iter 1
+MàJ vue Auteur - Iter 2
