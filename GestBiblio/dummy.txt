@@ -38,3 +38,4 @@ Ajout gestion utilisateur - Iter 6
 Correction gestion des prêts - Iter 7
 MàJ template affichage - Iter 8
 Modification settings.py pour DB - Iter 9
+Refactorisation backend & settings - Iter 10
