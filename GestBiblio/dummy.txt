@@ -44,3 +44,4 @@ Optimize Auteur - Iter 2
 Fix Emprunt API - Iter 3
 Remove old books - Iter 4
 Improve search - Iter 5
+Fix users - Iter 6
