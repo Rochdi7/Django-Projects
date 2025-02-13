@@ -42,3 +42,4 @@ Refactorisation backend & settings - Iter 10
 Fix Livre - Iter 1
 Optimize Auteur - Iter 2
 Fix Emprunt API - Iter 3
+Remove old books - Iter 4
