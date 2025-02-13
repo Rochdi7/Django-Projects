@@ -1,27 +1,35 @@
 #!/bin/bash
-# Script to automate commits with 8 unique messages tailored for Moroccan Cuisine Blog
+# Script to automate commits after completing the Django project
 
 # Number of iterations
-ITERATIONS=2
+ITERATIONS=10
 
 # Create a dummy file to modify
-FILE_NAME="dummy.txt"
+FILE_NAME="project_test_log.txt"
 
-# Array of 8 unique commit messages for the Moroccan Cuisine Blog project
+# Array of 10 short commit messages
 COMMIT_MESSAGES=(
-    "Fix settings.py bug"
-    "static file fixed"
+    "Project done! Ready for tests."
+    "Final tweaks before testing."
+    "Preparing for first test run."
+    "Fixing last-minute details."
+    "Finalizing setup for tests."
+    "Reviewing configurations."
+    "Ensuring stability before test."
+    "Final review before launch."
+    "Almost there! Testing next."
+    "Final touches. Running tests."
 )
 
 # Check if the file exists, else create it
 if [ ! -f "$FILE_NAME" ]; then
-    echo "Initializing dummy file" > "$FILE_NAME"
+    echo "Initializing test log file" > "$FILE_NAME"
     git add "$FILE_NAME"
-    git commit -m "Initial commit with dummy file"
+    git commit -m "Initial commit with test log file"
     echo "Initialized $FILE_NAME and made the first commit."
 fi
 
-# Loop to add 8 iterations of commits with random messages
+# Loop to add 10 iterations of commits with specific messages
 for ((i=1; i<=ITERATIONS; i++))
 do
     # Pick a random commit message from the array
@@ -40,6 +48,6 @@ do
 done
 
 # Push changes to GitHub
-git push origin main
+git push origin main --force
 
 echo "All $ITERATIONS commits have been pushed to GitHub."

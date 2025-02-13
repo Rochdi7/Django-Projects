@@ -9,8 +9,8 @@ FILE_NAME="dummy.txt"
 
 # Array of 8 unique commit messages for the Moroccan Cuisine Blog project
 COMMIT_MESSAGES=(
-    "Fix settings.py bug"
-    "static file fixed"
+    "admin.py file add in blog application"
+    "new files add in blog application"
 )
 
 # Check if the file exists, else create it
