@@ -40,3 +40,4 @@ MàJ template affichage - Iter 8
 Modification settings.py pour DB - Iter 9
 Refactorisation backend & settings - Iter 10
 Fix Livre - Iter 1
+Optimize Auteur - Iter 2
