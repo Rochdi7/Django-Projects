@@ -3,7 +3,6 @@
 Welcome to the **Django Projects Repository**! 🚀
 
 This repository contains a diverse collection of Django-based projects, each meticulously developed to explore, learn, and demonstrate the power of Django—a high-level Python web framework for rapid development and pragmatic design. Dive in to discover projects crafted for various use cases and featuring modern design and functionality.
-
 ---
 
 ## 🛠️ Features
