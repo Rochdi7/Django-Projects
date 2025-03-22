@@ -31,6 +31,8 @@ This project is a Django-based blog application focusing on Moroccan cuisine. Th
 Here is the structure of the project:
 ```
 BLOG APPLICATION
+
+
 |
 ├── base
 │   ├── templatetags
