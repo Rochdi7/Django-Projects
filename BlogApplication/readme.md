@@ -27,7 +27,6 @@ This project is a Django-based blog application focusing on Moroccan cuisine. Th
 ---
 
 ## File Structure 📂 🗂️
-
 Here is the structure of the project:
 ```
 BLOG APPLICATION
